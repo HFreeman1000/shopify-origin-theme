@@ -1,0 +1,114 @@
+{% comment %}
+  Custom Header / Navigation for Peak Vitality
+  Clean Montserrat layout, sticky, responsive, smooth transitions
+{% endcomment %}
+
+<header class="pv-header" id="pv-header">
+  <div class="pv-nav-wrapper">
+    <a href="/" class="pv-logo">Peak Vitality</a>
+    <nav class="pv-nav-menu">
+      <a href="/collections/all">Shop All</a>
+      <a href="/pages/about">About</a>
+      <a href="/pages/rewards">Rewards</a>
+      <a href="/pages/contact">Contact</a>
+    </nav>
+
+    <button class="pv-nav-toggle" aria-label="Toggle Menu">☰</button>
+  </div>
+
+  <div class="pv-mobile-menu" id="pv-mobile-menu">
+    <a href="/collections/all">Shop All</a>
+    <a href="/pages/about">About</a>
+    <a href="/pages/rewards">Rewards</a>
+    <a href="/pages/contact">Contact</a>
+  </div>
+</header>
+
+<style>
+.pv-header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background: #fff;
+  color: #000033;
+  font-family: 'Montserrat', sans-serif;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+.pv-header.scrolled {
+  background: rgba(255,255,255,0.95);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+.pv-nav-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+.pv-logo {
+  font-weight: 700;
+  font-size: 1.25rem;
+  text-decoration: none;
+  color: #000033;
+}
+.pv-nav-menu a {
+  margin: 0 1rem;
+  text-decoration: none;
+  color: #000033;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+.pv-nav-menu a:hover { color: #00C97C; }
+
+.pv-nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #000033;
+  cursor: pointer;
+}
+
+/* Mobile Drawer */
+.pv-mobile-menu {
+  display: none;
+  flex-direction: column;
+  background: #fff;
+  border-top: 1px solid #ddd;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.pv-mobile-menu a {
+  padding: 1rem;
+  text-decoration: none;
+  color: #000033;
+  border-bottom: 1px solid #eee;
+  text-align: center;
+}
+.pv-mobile-menu a:hover { background: #F0FFF9; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .pv-nav-menu { display: none; }
+  .pv-nav-toggle { display: block; }
+}
+</style>
+
+<script>
+const pvHeader = document.getElementById('pv-header');
+const pvToggle = document.querySelector('.pv-nav-toggle');
+const pvMobileMenu = document.getElementById('pv-mobile-menu');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 30) pvHeader.classList.add('scrolled');
+  else pvHeader.classList.remove('scrolled');
+});
+
+pvToggle.addEventListener('click', () => {
+  pvMobileMenu.style.display = pvMobileMenu.style.display === 'flex' ? 'none' : 'flex';
+});
+</script>
