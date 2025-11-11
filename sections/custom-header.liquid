@@ -1,23 +1,43 @@
 {% comment %}
-  Custom Header / Navigation for Peak Vitality
-  Clean Montserrat layout, sticky, responsive, smooth transitions
+  Peak Vitality — Enhanced Header with Dropdown Navigation
+  Responsive, sticky, and smooth (Montserrat + #000033 + #00C97C accents)
 {% endcomment %}
 
 <header class="pv-header" id="pv-header">
   <div class="pv-nav-wrapper">
     <a href="/" class="pv-logo">Peak Vitality</a>
+
+    <!-- Desktop Navigation -->
     <nav class="pv-nav-menu">
-      <a href="/collections/all">Shop All</a>
+      <div class="pv-dropdown">
+        <button class="pv-dropbtn">Shop ▾</button>
+        <div class="pv-dropdown-content">
+          <a href="/products/amber-pulse">Amber Pulse</a>
+          <a href="/products/lunar-drift">Lunar Drift</a>
+          <a href="/products/cell-reign">Cell Reign</a>
+          <a href="/products/radiant-mane">Radiant Mane</a>
+          <a href="/products/golden-rise">Golden Rise</a>
+        </div>
+      </div>
       <a href="/pages/about">About</a>
       <a href="/pages/rewards">Rewards</a>
       <a href="/pages/contact">Contact</a>
     </nav>
 
+    <!-- Mobile Toggle -->
     <button class="pv-nav-toggle" aria-label="Toggle Menu">☰</button>
   </div>
 
+  <!-- Mobile Drawer -->
   <div class="pv-mobile-menu" id="pv-mobile-menu">
-    <a href="/collections/all">Shop All</a>
+    <details>
+      <summary>Shop</summary>
+      <a href="/products/amber-pulse">Amber Pulse</a>
+      <a href="/products/lunar-drift">Lunar Drift</a>
+      <a href="/products/cell-reign">Cell Reign</a>
+      <a href="/products/radiant-mane">Radiant Mane</a>
+      <a href="/products/golden-rise">Golden Rise</a>
+    </details>
     <a href="/pages/about">About</a>
     <a href="/pages/rewards">Rewards</a>
     <a href="/pages/contact">Contact</a>
@@ -25,6 +45,7 @@
 </header>
 
 <style>
+/* === BASE HEADER === */
 .pv-header {
   position: sticky;
   top: 0;
@@ -37,8 +58,8 @@
   transition: all 0.3s ease;
 }
 .pv-header.scrolled {
-  background: rgba(255,255,255,0.95);
-  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  background: rgba(255,255,255,0.96);
+  box-shadow: 0 3px 12px rgba(0,0,0,0.1);
 }
 .pv-nav-wrapper {
   display: flex;
@@ -48,29 +69,75 @@
 }
 .pv-logo {
   font-weight: 700;
-  font-size: 1.25rem;
+  font-size: 1.3rem;
   text-decoration: none;
   color: #000033;
 }
-.pv-nav-menu a {
+
+/* === DESKTOP NAVIGATION === */
+.pv-nav-menu {
+  display: flex;
+  align-items: center;
+}
+.pv-nav-menu > a,
+.pv-dropbtn {
   margin: 0 1rem;
   text-decoration: none;
   color: #000033;
   font-weight: 600;
-  transition: color 0.2s;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: color 0.25s ease;
 }
-.pv-nav-menu a:hover { color: #00C97C; }
+.pv-nav-menu > a:hover,
+.pv-dropbtn:hover {
+  color: #00C97C;
+}
 
+/* === DROPDOWN === */
+.pv-dropdown {
+  position: relative;
+}
+.pv-dropdown-content {
+  display: none;
+  position: absolute;
+  top: 2.5rem;
+  left: 0;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  min-width: 200px;
+  z-index: 999;
+}
+.pv-dropdown-content a {
+  display: block;
+  padding: 0.75rem 1.25rem;
+  text-decoration: none;
+  color: #000033;
+  font-weight: 500;
+  transition: background 0.25s ease;
+}
+.pv-dropdown-content a:hover {
+  background: #F0FFF9;
+  color: #00C97C;
+}
+.pv-dropdown:hover .pv-dropdown-content {
+  display: block;
+}
+
+/* === MOBILE MENU === */
 .pv-nav-toggle {
   display: none;
   background: none;
   border: none;
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   color: #000033;
   cursor: pointer;
 }
-
-/* Mobile Drawer */
 .pv-mobile-menu {
   display: none;
   flex-direction: column;
@@ -81,18 +148,30 @@
   left: 0;
   width: 100%;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  z-index: 999;
 }
-.pv-mobile-menu a {
+.pv-mobile-menu a,
+.pv-mobile-menu summary {
   padding: 1rem;
   text-decoration: none;
   color: #000033;
   border-bottom: 1px solid #eee;
   text-align: center;
+  font-weight: 500;
+  cursor: pointer;
 }
-.pv-mobile-menu a:hover { background: #F0FFF9; }
+.pv-mobile-menu a:hover,
+.pv-mobile-menu summary:hover {
+  background: #F0FFF9;
+  color: #00C97C;
+}
+.pv-mobile-menu details {
+  border-bottom: 1px solid #eee;
+}
+.pv-mobile-menu[open] a { display: block; }
 
-/* Responsive */
-@media (max-width: 768px) {
+/* === RESPONSIVE BEHAVIOR === */
+@media (max-width: 900px) {
   .pv-nav-menu { display: none; }
   .pv-nav-toggle { display: block; }
 }
@@ -103,12 +182,14 @@ const pvHeader = document.getElementById('pv-header');
 const pvToggle = document.querySelector('.pv-nav-toggle');
 const pvMobileMenu = document.getElementById('pv-mobile-menu');
 
+/* Sticky Header Effect */
 window.addEventListener('scroll', () => {
-  if (window.scrollY > 30) pvHeader.classList.add('scrolled');
-  else pvHeader.classList.remove('scrolled');
+  pvHeader.classList.toggle('scrolled', window.scrollY > 24);
 });
 
+/* Mobile Menu Toggle */
 pvToggle.addEventListener('click', () => {
-  pvMobileMenu.style.display = pvMobileMenu.style.display === 'flex' ? 'none' : 'flex';
+  const isVisible = pvMobileMenu.style.display === 'flex';
+  pvMobileMenu.style.display = isVisible ? 'none' : 'flex';
 });
 </script>
