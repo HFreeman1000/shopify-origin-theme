@@ -1,8 +1,8 @@
 {% comment %}
-  Peak Vitality — Homepage v3 (Framed Hero + Plaque + Animated Sections)
-  - All styles consolidated in one <style> for parser safety
-  - No inline CSS except safe width controls
-  - IntersectionObserver for lightweight animations
+  Peak Vitality — Homepage v4 (Cinematic)
+  - Full layout preserved
+  - Added MP4 hero with crest sound toggle
+  - Added hover-play videos for Peak Difference
 {% endcomment %}
 
 <section class="pv-home-landing" role="region" aria-label="Peak Vitality Homepage">
@@ -83,7 +83,7 @@
       z-index: 3;
     }
 
-    /* ---------- Hero Section ---------- */
+    /* ---------- Hero Video ---------- */
     .pv-hero {
       position: relative;
       min-height: 90vh;
@@ -94,9 +94,19 @@
       color: var(--pv-white);
       margin-top: 2rem;
       overflow: hidden;
-      background: url('https://cdn.shopify.com/s/files/1/0670/7180/3574/files/final_spiral_staircase_hero_reupload.png?v=1745757805') center/cover no-repeat;
+    }
+    .pv-hero video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
     }
     .pv-hero__inner {
+      position: relative;
+      z-index: 2;
       opacity: 0;
       transform: translateY(30px);
       animation: pvFadeUp 1.2s ease forwards .3s;
@@ -114,6 +124,25 @@
       color: #f9f9f9;
       text-shadow: 0 2px 6px rgba(0,0,0,0.75);
       margin: 0 0 1.5rem 0;
+    }
+
+    /* ---------- Crest Sound Toggle ---------- */
+    #pv-sound-toggle {
+      position: absolute;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      width: 75px;
+      height: 75px;
+      z-index: 3;
+      cursor: pointer;
+      transition: transform .3s ease;
+    }
+    #pv-sound-toggle.active {
+      animation: crestPulse 2s infinite ease-in-out;
+    }
+    @keyframes crestPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.08); }
     }
 
     /* ---------- Credibility Row ---------- */
@@ -165,20 +194,13 @@
       opacity: 1;
       transform: translateY(0);
     }
-    .pv-three__col img {
+    .pv-three__col video {
       width: 240px;
       max-width: 100%;
       border-radius: 1rem;
       box-shadow: 0 6px 16px rgba(0,0,0,0.1);
       margin-bottom: 1rem;
-      transition: transform .3s ease, box-shadow .3s ease;
       display: block;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .pv-three__col img:hover {
-      transform: scale(1.03);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
     }
 
     /* ---------- Featured Products ---------- */
@@ -212,7 +234,6 @@
       display: block;
     }
 
-    /* ---------- Shared Centered Sections ---------- */
     .pv-centered {
       text-align: center;
       padding: 4rem 2rem;
@@ -225,7 +246,6 @@
       margin: 0 auto 1rem auto;
     }
 
-    /* ---------- Animation ---------- */
     @keyframes pvFadeUp {
       from { opacity: 0; transform: translateY(30px); }
       to   { opacity: 1; transform: translateY(0); }
@@ -253,28 +273,23 @@
 
   <!-- Hero -->
   <section class="pv-hero">
+    <video id="pv-hero-video" autoplay loop muted playsinline preload="auto">
+      <source src="YOUR_STAIRCASE_VIDEO_URL.mp4" type="video/mp4">
+    </video>
     <div class="pv-hero__inner">
       <h1>Fuel Your Vitality. Earn Bitcoin.</h1>
       <p>Discover premium health supplements that reward your journey.</p>
       <a class="pv-btn pv-btn--primary" href="/collections/all">Shop Now</a>
     </div>
+    <img id="pv-sound-toggle" src="YOUR_CREST_IMAGE_URL.png" alt="Toggle Sound">
   </section>
 
   <!-- Credibility -->
   <section class="pv-container">
     <div class="pv-icons">
-      <div class="pv-icon">
-        <img src="https://cdn.shopify.com/s/files/1/0670/7180/3574/files/flag.png?v=1750165146" alt="Made in USA">
-        <p>Made in USA</p>
-      </div>
-      <div class="pv-icon">
-        <img src="https://cdn.shopify.com/s/files/1/0670/7180/3574/files/bitcoin_2.png?v=1750335468" alt="Bitcoin Rewards">
-        <p>Bitcoin Rewards</p>
-      </div>
-      <div class="pv-icon">
-        <img src="https://cdn.shopify.com/s/files/1/0670/7180/3574/files/flask-round.png?v=1750165147" alt="Transparent Formulas">
-        <p>Transparent Formulas</p>
-      </div>
+      <div class="pv-icon"><img src="https://cdn.shopify.com/s/files/1/0670/7180/3574/files/flag.png?v=1750165146"><p>Made in USA</p></div>
+      <div class="pv-icon"><img src="https://cdn.shopify.com/s/files/1/0670/7180/3574/files/bitcoin_2.png?v=1750335468"><p>Bitcoin Rewards</p></div>
+      <div class="pv-icon"><img src="https://cdn.shopify.com/s/files/1/0670/7180/3574/files/flask-round.png?v=1750165147"><p>Transparent Formulas</p></div>
     </div>
   </section>
 
@@ -284,17 +299,23 @@
       <h2>The Peak Difference</h2>
       <div class="pv-three">
         <div class="pv-three__col">
-          <img src="https://cdn.shopify.com/s/files/1/0670/7180/3574/files/Mountain_flowing_with_energy_at_dawn.png?v=1750556494" alt="Health Optimization">
+          <video class="pv-diff-video" poster="THUMBNAIL_URL_1.jpg" muted preload="metadata">
+            <source src="VIDEO_URL_1.mp4" type="video/mp4">
+          </video>
           <h3>Health Optimization</h3>
           <p>Scientifically crafted supplements that fuel vitality from within.</p>
         </div>
         <div class="pv-three__col">
-          <img src="https://cdn.shopify.com/s/files/1/0670/7180/3574/files/Bitcoin_flows.png?v=1750556494" alt="Wealth Empowerment">
+          <video class="pv-diff-video" poster="THUMBNAIL_URL_2.jpg" muted preload="metadata">
+            <source src="VIDEO_URL_2.mp4" type="video/mp4">
+          </video>
           <h3>Wealth Empowerment</h3>
           <p>Earn Bitcoin rewards with every purchase — real value, real growth.</p>
         </div>
         <div class="pv-three__col">
-          <img src="https://cdn.shopify.com/s/files/1/0670/7180/3574/files/citadel_at_dusk.png?v=1750556494" alt="Innovative Wellness">
+          <video class="pv-diff-video" poster="THUMBNAIL_URL_3.jpg" muted preload="metadata">
+            <source src="VIDEO_URL_3.mp4" type="video/mp4">
+          </video>
           <h3>Innovative Wellness</h3>
           <p>Next-gen formulas inspired by nature, backed by cutting-edge science.</p>
         </div>
@@ -302,7 +323,7 @@
     </div>
   </section>
 
-  <!-- Featured -->
+  <!-- Featured Products -->
   <section class="pv-featured">
     <div class="pv-container">
       <h2>Featured Products</h2>
@@ -353,28 +374,39 @@
   </section>
 
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const cols = document.querySelectorAll('.pv-three__col');
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) entry.target.classList.add('visible');
-        });
-      }, { threshold: 0.2 });
-      cols.forEach(c => observer.observe(c));
+    /* --- Crest Sound Toggle --- */
+    const heroVideo = document.getElementById('pv-hero-video');
+    const soundToggle = document.getElementById('pv-sound-toggle');
+    soundToggle.addEventListener('click', () => {
+      heroVideo.muted = !heroVideo.muted;
+      soundToggle.classList.toggle('active', !heroVideo.muted);
     });
+
+    /* --- Hover-to-Play Peak Difference Videos --- */
+    document.querySelectorAll('.pv-diff-video').forEach(video => {
+      video.addEventListener('mouseenter', () => { video.play(); });
+      video.addEventListener('mouseleave', () => { video.pause(); video.currentTime = 0; });
+    });
+
+    /* --- Fade-in Animation --- */
+    const cols = document.querySelectorAll('.pv-three__col');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.2 });
+    cols.forEach(c => observer.observe(c));
   </script>
 
 </section>
 
 {% schema %}
 {
-  "name": "PV Hero",
+  "name": "Homepage Cinematic",
   "settings": [],
   "blocks": [],
   "presets": [
-    {
-      "name": "PV Hero"
-    }
+    { "name": "Homepage Cinematic" }
   ]
 }
 {% endschema %}
