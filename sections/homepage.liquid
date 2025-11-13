@@ -1,199 +1,168 @@
-{% comment %}
-  Peak Vitality — Homepage Cinematic (with global header/footer)
-{% endcomment %}
+<!-- ============================= -->
+<!-- HOMEPAGE CINEMATIC SECTION   -->
+<!-- ============================= -->
 
 <section class="pv-home-landing" role="region" aria-label="Peak Vitality Homepage">
 
-  <!-- Framed Hero -->
-  <div class="pv-art-installation">
-    <img class="pv-art-framed-image"
-         src="https://cdn.shopify.com/s/files/1/0670/7180/3574/files/Path_Of_The_Sovereign_5.png?v=1750165003"
-         alt="Homepage Framed Hero">
+  <!-- ===== BITCOIN TICKER BAR ===== -->
+  <div class="pv-top-ticker-bar">
+    <span id="btcTicker">Loading BTC price...</span>
+    <div class="pv-ticker-powered">Powered by <strong>CoinGecko</strong></div>
   </div>
 
-  <!-- Plaque -->
-  <div class="pv-art-plaque-container">
-    <img class="pv-art-plaque"
-         src="https://cdn.shopify.com/s/files/1/0670/7180/3574/files/Path_of_the_Sovereign_Plaque_1.png?v=1748915453"
-         alt="Homepage Plaque">
+  <!-- ===== ANNOUNCEMENT BAR ===== -->
+  <div class="pv-announcement-bar">
+    Premium Supplements with Crypto Rewards!
   </div>
 
-  <!-- Cinematic Hero Video -->
-  <section class="pv-hero">
-    <video id="pv-hero-video" autoplay loop muted playsinline preload="auto">
-      <source src="https://cdn.shopify.com/videos/c/o/v/35abc5fa5fa04d4c96a3baee0b3f2786.mp4" type="video/mp4">
+  <!-- ===== MAIN LOGO (CENTERED) ===== -->
+  <div class="pv-header-logo-wrapper">
+    <img 
+      src="https://cdn.shopify.com/s/files/1/0717/5687/3919/files/Website_Logo_Header.jpg?v=1763047312"
+      alt="Peak Vitality Logo"
+      class="pv-main-logo"
+    >
+  </div>
+
+  <!-- ===== HERO LOOPING VIDEO (STAIRCASE) ===== -->
+  <div class="pv-hero-wrapper">
+    <video id="pvHeroVideo" class="pv-hero-video" autoplay loop muted playsinline>
+      <source src="YOUR_STAIRCACE_LOOP.mp4" type="video/mp4">
     </video>
 
-    <div class="pv-hero__inner">
-      <h1>Fuel Your Vitality. Earn Bitcoin.</h1>
-      <p>Discover premium health supplements that reward your journey.</p>
-      <a class="pv-btn pv-btn--primary" href="/collections/all">Shop Now</a>
-    </div>
+    <button id="pvSoundToggle" class="pv-sound-button">
+      🔇
+    </button>
+  </div>
 
-    <!-- Crest Sound Toggle (swap to your crest image if desired) -->
-    <img
-      id="pv-sound-toggle"
-      src="https://cdn.shopify.com/s/files/1/0717/5687/3919/files/Peak_crest_no_background.jpg?v=1763050114"
-      alt="Toggle Sound">
-  </section>
-
-  <!-- Credibility Icons -->
+  <!-- ===== ICONS ROW ===== -->
   <section class="pv-icons-band">
-    <div class="pv-container">
-      <div class="pv-icons">
-        <div class="pv-icon">
-          <img src="https://cdn.shopify.com/s/files/1/0670/7180/3574/files/flag.png?v=1750165146" alt="Made in USA">
-          <p>Made in USA</p>
-        </div>
-        <div class="pv-icon">
-          <img src="https://cdn.shopify.com/s/files/1/0670/7180/3574/files/bitcoin_2.png?v=1750335468" alt="Bitcoin Rewards">
-          <p>Bitcoin Rewards</p>
-        </div>
-        <div class="pv-icon">
-          <img src="https://cdn.shopify.com/s/files/1/0670/7180/3574/files/flask-round.png?v=1750165147" alt="Transparent Formulas">
-          <p>Transparent Formulas</p>
-        </div>
+    <div class="pv-icons">
+      <div class="pv-icon">
+        <img src="https://cdn.shopify.com/s/files/1/0717/5687/3919/files/madeinusa.png" alt="Made in USA">
+        <div>Made in USA</div>
+      </div>
+
+      <div class="pv-icon">
+        <img src="https://cdn.shopify.com/s/files/1/0717/5687/3919/files/bitcoinrewards.png" alt="Bitcoin Rewards">
+        <div>Bitcoin Rewards</div>
+      </div>
+
+      <div class="pv-icon">
+        <img src="https://cdn.shopify.com/s/files/1/0717/5687/3919/files/transformula.png" alt="Transparent Formulas">
+        <div>Transparent Formulas</div>
       </div>
     </div>
   </section>
 
-  <!-- Peak Difference with Hover Videos -->
-  <section class="pv-difference">
-    <div class="pv-container">
-      <h2>The Peak Difference</h2>
-      <div class="pv-three">
-        <div class="pv-three__col">
-          <video
-            class="pv-diff-video"
-            muted
-            preload="metadata"
-            poster="https://cdn.shopify.com/s/files/1/0670/7180/3574/files/Mountain_flowing_with_energy_at_dawn.png?v=1750556494">
-            <source src="https://cdn.shopify.com/videos/c/o/v/ffea26c56f3d4a4089fd998303f7e368.mp4" type="video/mp4">
-          </video>
-          <h3>Health Optimization</h3>
-          <p>Scientifically crafted supplements that fuel vitality from within.</p>
-        </div>
+  <!-- ===== PEAK DIFFERENCE ===== -->
+  <h2 class="pv-title">The Peak Difference</h2>
 
-        <div class="pv-three__col">
-          <video
-            class="pv-diff-video"
-            muted
-            preload="metadata"
-            poster="https://cdn.shopify.com/s/files/1/0670/7180/3574/files/Bitcoin_flows.png?v=1750556494">
-            <source src="https://cdn.shopify.com/videos/c/o/v/357d3defbeb349858909ac7dc1edc8f1.mp4" type="video/mp4">
-          </video>
-          <h3>Wealth Empowerment</h3>
-          <p>Earn Bitcoin rewards with every purchase — real value, real growth.</p>
-        </div>
-
-        <div class="pv-three__col">
-          <video
-            class="pv-diff-video"
-            muted
-            preload="metadata"
-            poster="https://cdn.shopify.com/s/files/1/0670/7180/3574/files/citadel_at_dusk.png?v=1750556494">
-            <source src="https://cdn.shopify.com/videos/c/o/v/9048534bf1384368985c7c548a15f2c3.mp4" type="video/mp4">
-          </video>
-          <h3>Innovative Wellness</h3>
-          <p>Next-gen formulas inspired by nature, backed by cutting-edge science.</p>
-        </div>
+  <div class="pv-three">
+    <!-- 1 -->
+    <div class="pv-diff-card">
+      <div class="pv-hover-container">
+        <img class="pv-static-img" src="THUMB1.jpg">
+        <video class="pv-hover-video" muted loop preload="metadata">
+          <source src="VIDEO1.mp4" type="video/mp4">
+        </video>
       </div>
+      <h3>Health Optimization</h3>
+      <p>Scientifically crafted supplements that fuel vitality from within.</p>
     </div>
-  </section>
 
-  <!-- Featured Products -->
-  <section class="pv-featured">
-    <div class="pv-container">
-      <h2>Featured Products</h2>
-      <div class="pv-carousel">
-        <div class="pv-card">
-          <img src="https://cdn.shopify.com/s/files/1/0670/7180/3574/files/ChatGPT_Image_Apr_20_2025_10_12_36_AM.png?v=1745165592" alt="Lunar Drift">
-          <h4>Lunar Drift</h4>
-          <a class="pv-btn pv-btn--secondary" href="/products/lunar-drift">Shop Now</a>
-        </div>
-        <div class="pv-card">
-          <img src="https://cdn.shopify.com/s/files/1/0670/7180/3574/files/ChatGPT_Image_Apr_25_2025_12_23_29_PM.png?v=1745605890" alt="Cell Reign">
-          <h4>Cell Reign</h4>
-          <a class="pv-btn pv-btn--secondary" href="/products/cell-reign">Shop Now</a>
-        </div>
-        <div class="pv-card">
-          <img src="https://cdn.shopify.com/s/files/1/0670/7180/3574/files/rhip2.png?v=1745713332" alt="Complete Wellness Bundle">
-          <h4>Complete Wellness Bundle</h4>
-          <a class="pv-btn pv-btn--secondary" href="/products/complete-wellness-bundle">Shop Now</a>
-        </div>
+    <!-- 2 -->
+    <div class="pv-diff-card">
+      <div class="pv-hover-container">
+        <img class="pv-static-img" src="THUMB2.jpg">
+        <video class="pv-hover-video" muted loop preload="metadata">
+          <source src="VIDEO2.mp4" type="video/mp4">
+        </video>
       </div>
+      <h3>Wealth Empowerment</h3>
+      <p>Earn Bitcoin rewards with every purchase — real value, real growth.</p>
     </div>
+
+    <!-- 3 -->
+    <div class="pv-diff-card">
+      <div class="pv-hover-container">
+        <img class="pv-static-img" src="THUMB3.jpg">
+        <video class="pv-hover-video" muted loop preload="metadata">
+          <source src="VIDEO3.mp4" type="video/mp4">
+        </video>
+      </div>
+      <h3>Innovative Wellness</h3>
+      <p>Next-gen formulas inspired by nature, backed by cutting-edge science.</p>
+    </div>
+  </div>
+
+  <!-- ===== COMMUNITY SECTION ===== -->
+  <section class="pv-community">
+    <img class="pv-crest" src="https://cdn.shopify.com/s/files/1/0717/5687/3919/files/Peak_crest_no_background.jpg?v=1763050114" />
+    <h2>Join Our Growing Community</h2>
+    <p>
+      Unlock more rewards, loyalty bonuses, and exclusive perks by becoming part of the Peak Vitality family.
+    </p>
   </section>
 
-  <!-- Bitcoin Rewards CTA -->
-  <section class="pv-centered">
-    <div class="pv-container">
-      <h2>Earn Bitcoin with Every Order</h2>
-      <p>Every Peak Vitality order comes with free Bitcoin rewards — simple, automatic, and rewarding your journey toward optimal health and wealth.</p>
-      <a class="pv-btn pv-btn--primary" href="/pages/bitcoin-rewards">Learn How</a>
-    </div>
-  </section>
+  <!-- ===== CTA BUTTON ===== -->
+  <div class="pv-cta-wrapper">
+    <a href="/collections/all" class="pv-cta-btn">Shop the Collection</a>
+  </div>
 
-  <!-- Community Crest -->
-  <section class="pv-centered pv-crest">
-    <div class="pv-container">
-      <img src="https://cdn.shopify.com/s/files/1/0717/5687/3919/files/Peak_crest_no_background.jpg?v=1763050114" alt="Peak Vitality Crest">
-      <h2>Join Our Growing Community</h2>
-      <p>Unlock more rewards, loyalty bonuses, and exclusive perks by becoming part of the Peak Vitality family.</p>
-    </div>
-  </section>
+</section>
 
-  <!-- Final CTA -->
-  <section class="pv-centered">
-    <div class="pv-container">
-      <h2>Explore Peak Vitality Today</h2>
-      <a class="pv-btn pv-btn--primary" href="/collections/all">Shop the Collection</a>
-    </div>
-  </section>
+<!-- ========================= -->
+<!-- JS — BTC Ticker + Sound  -->
+<!-- ========================= -->
 
-  <script>
-    // Crest sound toggle
-    (function() {
-      const video = document.getElementById('pv-hero-video');
-      const toggle = document.getElementById('pv-sound-toggle');
-      if (!video || !toggle) return;
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  
+  /* ---- Bitcoin ticker ---- */
+  const tickerEl = document.getElementById("btcTicker");
 
-      toggle.addEventListener('click', () => {
-        video.muted = !video.muted;
-        toggle.classList.toggle('active', !video.muted);
-      });
-    })();
-
-    // Hover-to-play for Peak Difference videos
-    document.querySelectorAll('.pv-diff-video').forEach(video => {
-      video.addEventListener('mouseenter', () => { video.play(); });
-      video.addEventListener('mouseleave', () => { video.pause(); video.currentTime = 0; });
+  fetch("https://peak-vitality.onrender.com/api/bitcoin-ticker")
+    .then(r => r.json())
+    .then(data => {
+      tickerEl.textContent = 
+        `1 BTC = $${data.btc.toLocaleString()} | 1 SAT ≈ $${data.sat}`;
+    })
+    .catch(() => {
+      tickerEl.textContent = "Live BTC price temporarily unavailable";
     });
 
-    // Fade-in animation for Peak Difference columns
-    (function() {
-      const cols = document.querySelectorAll('.pv-three__col');
-      if (!('IntersectionObserver' in window) || !cols.length) return;
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.2 });
-      cols.forEach(c => observer.observe(c));
-    })();
-  </script>
-</section>
+  /* ---- Hero Sound Toggle ---- */
+  const video = document.getElementById("pvHeroVideo");
+  const btn = document.getElementById("pvSoundToggle");
+
+  btn.addEventListener("click", () => {
+    if (video.muted) {
+      video.muted = false;
+      btn.textContent = "🔊";
+    } else {
+      video.muted = true;
+      btn.textContent = "🔇";
+    }
+  });
+
+  /* ---- Peak Difference Hover Videos ---- */
+  document.querySelectorAll(".pv-hover-container").forEach(container => {
+    const img = container.querySelector(".pv-static-img");
+    const vid = container.querySelector(".pv-hover-video");
+
+    container.addEventListener("mouseenter", () => { vid.style.opacity = "1"; vid.play(); });
+    container.addEventListener("mouseleave", () => { vid.style.opacity = "0"; vid.pause(); });
+  });
+
+});
+</script>
 
 {% schema %}
 {
   "name": "Homepage Cinematic",
   "settings": [],
   "blocks": [],
-  "presets": [
-    { "name": "Homepage Cinematic" }
-  ]
+  "presets": [{ "name": "Homepage Cinematic" }]
 }
 {% endschema %}
