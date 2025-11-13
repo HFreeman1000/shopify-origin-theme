@@ -1,128 +1,132 @@
-/* ======================== */
-/* GLOBAL COLORS            */
-/* ======================== */
 :root {
-  --deep-navy: #020533;
-  --navy: #001a66;
-  --gold: #e3b500;
-  --cream: #f6f6f6;
+  --navy: #00063b;
+  --deep-navy: #00032a;
+  --cream: #faf8ee;
   --white: #ffffff;
-  --text-dark: #0d0d0d;
-  --text-light: #f8f8f8;
 }
 
-/* ======================== */
-/* GLOBAL HEADER CLEANUP    */
-/* ======================== */
-
+/***************
+  HEADER
+***************/
 .pv-header-clean {
+  width: 100%;
   background: var(--deep-navy);
-  color: var(--white);
   text-align: center;
-  padding: 0;
-  margin: 0;
-  border: none;
 }
 
-/* Remove Shopify's default navigation under logo */
-header nav,
-.site-header__icons-wrapper,
-.header__inline-menu,
-.header__heading-link {
-  display: none !important;
-}
-
-/* Top bar area (now deep navy, not white) */
 .pv-header-top {
   background: var(--deep-navy);
-  padding: 12px 0;
   color: var(--white);
+  padding: 6px;
+  font-size: 14px;
 }
 
-/* Announcement bar */
 .pv-announcement-bar-global {
-  background: var(--navy);
-  padding: 10px 0;
+  background: #001088;
   color: var(--white);
-  font-size: 1.1rem;
-  font-weight: 600;
+  padding: 12px 0;
+  font-size: 18px;
 }
 
-/* Logo centered */
 .pv-header-logo-wrapper {
-  background: var(--deep-navy);
   padding: 20px 0;
 }
+
 .pv-main-logo {
-  width: 185px;
+  width: 135px;
+  height: auto;
 }
 
-/* ======================== */
-/* HOMEPAGE MAIN SECTION    */
-/* ======================== */
-
-.pv-home-landing {
+/***************
+  HERO
+***************/
+.pv-hero {
   width: 100%;
-  padding: 0;
-  margin: 0;
+  overflow: hidden;
 }
 
-/* Bitcoin ticker */
-.pv-top-ticker-bar {
-  background: var(--deep-navy);
-  padding: 10px;
-  text-align: center;
-  color: var(--white);
-  font-weight: 700;
-  font-size: 1rem;
-}
-
-/* Fix Peak Difference cards */
-.pv-three {
-  display: flex;
-  justify-content: space-between;
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 2rem auto 0 auto;
-  padding: 0 2rem;
-}
-.pv-diff-card {
-  flex: 1;
-  text-align: center;
-}
-
-/* Restore thumbnails */
-.pv-static-img,
-.pv-hover-video {
+.pv-hero-img {
+  display: block;
   width: 100%;
-  border-radius: 12px;
+  height: auto;
 }
 
-.pv-hover-container {
-  position: relative;
-}
-.pv-hover-video {
-  position: absolute;
-  top: 0; left: 0;
-  opacity: 0;
-  transition: 0.3s ease;
-}
-
-/* Icons spacing fix */
+/***************
+  ICONS BAND
+***************/
 .pv-icons-band {
   background: var(--cream);
-  padding: 3rem 0;
+  padding: 50px 0;
 }
+
 .pv-icons {
   display: flex;
   justify-content: space-between;
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
-  gap: 4rem;
-}
-.pv-icon img {
-  width: 70px;
-  margin-bottom: 10px;
+  gap: 6rem;
 }
 
-/* Footer stays unchanged */
+.pv-icon img {
+  width: 70px;
+  margin-bottom: 12px;
+}
+
+.pv-icon p {
+  text-align: center;
+  margin: 0;
+  font-size: 16px;
+}
+
+/***************
+  PEAK DIFFERENCE
+***************/
+.pv-difference {
+  text-align: center;
+  padding: 100px 0;
+}
+
+.pv-diff-grid {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1250px;
+  margin: 50px auto 0;
+  gap: 5rem;
+}
+
+.pv-diff-item {
+  width: 31%;
+}
+
+.pv-diff-img-wrapper img {
+  width: 100%;
+  border-radius: 16px;
+}
+
+/***************
+  FOOTER
+***************/
+.pv-footer {
+  background: var(--deep-navy);
+  color: var(--white);
+  padding: 50px 0;
+  text-align: center;
+}
+
+.pv-footer-logo {
+  width: 130px;
+  margin-bottom: 20px;
+}
+
+.pv-footer-links a {
+  color: var(--white);
+  text-decoration: none;
+  margin: 0 14px;
+  font-size: 15px;
+}
+
+.pv-footer-copy {
+  margin-top: 20px;
+  font-size: 14px;
+  opacity: 0.75;
+}
