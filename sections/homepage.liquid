@@ -1,14 +1,10 @@
 {% comment %}
-  Peak Vitality — Homepage v4 (Cinematic)
-  - Full layout preserved
-  - Added MP4 hero with crest sound toggle
-  - Added hover-play videos for Peak Difference
+  Peak Vitality — Homepage v4 (Cinematic + Bands)
 {% endcomment %}
 
 <section class="pv-home-landing" role="region" aria-label="Peak Vitality Homepage">
 
   <style>
-    /* ---------- Core Tokens ---------- */
     :root {
       --pv-navy: #000080;
       --pv-deep: #000033;
@@ -57,7 +53,7 @@
       padding: .5rem 1.5rem;
     }
 
-    /* ---------- Framed Hero + Plaque ---------- */
+    /* Framed hero + plaque */
     .pv-art-installation {
       width: 100%;
       overflow-x: hidden;
@@ -83,7 +79,7 @@
       z-index: 3;
     }
 
-    /* ---------- Hero Video ---------- */
+    /* Hero video */
     .pv-hero {
       position: relative;
       min-height: 90vh;
@@ -126,7 +122,7 @@
       margin: 0 0 1.5rem 0;
     }
 
-    /* ---------- Crest Sound Toggle ---------- */
+    /* Crest sound toggle */
     #pv-sound-toggle {
       position: absolute;
       bottom: 1.5rem;
@@ -145,12 +141,19 @@
       50% { transform: scale(1.08); }
     }
 
-    /* ---------- Credibility Row ---------- */
+    /* Credibility band */
+    .pv-credibility {
+      background: var(--pv-muted);
+    }
+    .pv-credibility .pv-container {
+      padding-top: 2.5rem;
+      padding-bottom: 2.5rem;
+    }
     .pv-icons {
       display: flex;
       justify-content: center;
-      gap: 2rem;
-      margin-top: 2rem;
+      gap: 3rem;
+      margin-top: 0.5rem;
       flex-wrap: wrap;
     }
     .pv-icon {
@@ -164,7 +167,7 @@
       margin: 0 auto .5rem auto;
     }
 
-    /* ---------- Peak Difference ---------- */
+    /* Peak Difference */
     .pv-difference {
       text-align: center;
       padding: 4rem 2rem 2rem;
@@ -203,9 +206,10 @@
       display: block;
     }
 
-    /* ---------- Featured Products ---------- */
+    /* Featured band */
     .pv-featured {
       padding: 2rem 2rem 0;
+      background: var(--pv-muted);
     }
     .pv-featured h2 {
       text-align: center;
@@ -271,25 +275,39 @@
          alt="Homepage Plaque">
   </div>
 
-  <!-- Hero -->
+  <!-- Hero with video -->
   <section class="pv-hero">
     <video id="pv-hero-video" autoplay loop muted playsinline preload="auto">
-      <source src="https://cdn.shopify.com/videos/c/o/v/35abc5fa5fa04d4c96a3baee0b3f2786.mp4">
+      <source src="https://cdn.shopify.com/videos/c/o/v/35abc5fa5fa04d4c96a3baee0b3f2786.mp4" type="video/mp4">
     </video>
     <div class="pv-hero__inner">
       <h1>Fuel Your Vitality. Earn Bitcoin.</h1>
       <p>Discover premium health supplements that reward your journey.</p>
       <a class="pv-btn pv-btn--primary" href="/collections/all">Shop Now</a>
     </div>
-    <img id="pv-sound-toggle" src="https://cdn.shopify.com/s/files/1/0717/5687/3919/files/EARN_3_500_SATS_VITALITY_IMMUNITY_CELL_REIGN_32.png?v=1762976901" alt="Toggle Sound">
+    <!-- Crest toggle (placeholder crest) -->
+    <img id="pv-sound-toggle"
+         src="https://cdn.shopify.com/s/files/1/0717/5687/3919/files/EARN_3_500_SATS_VITALITY_IMMUNITY_CELL_REIGN_32.png?v=1762976901"
+         alt="Toggle Sound">
   </section>
 
-  <!-- Credibility -->
-  <section class="pv-container">
-    <div class="pv-icons">
-      <div class="pv-icon"><img src="https://cdn.shopify.com/s/files/1/0670/7180/3574/files/flag.png?v=1750165146"><p>Made in USA</p></div>
-      <div class="pv-icon"><img src="https://cdn.shopify.com/s/files/1/0670/7180/3574/files/bitcoin_2.png?v=1750335468"><p>Bitcoin Rewards</p></div>
-      <div class="pv-icon"><img src="https://cdn.shopify.com/s/files/1/0670/7180/3574/files/flask-round.png?v=1750165147"><p>Transparent Formulas</p></div>
+  <!-- Credibility (band) -->
+  <section class="pv-credibility">
+    <div class="pv-container">
+      <div class="pv-icons">
+        <div class="pv-icon">
+          <img src="https://cdn.shopify.com/s/files/1/0670/7180/3574/files/flag.png?v=1750165146" alt="Made in USA">
+          <p>Made in USA</p>
+        </div>
+        <div class="pv-icon">
+          <img src="https://cdn.shopify.com/s/files/1/0670/7180/3574/files/bitcoin_2.png?v=1750335468" alt="Bitcoin Rewards">
+          <p>Bitcoin Rewards</p>
+        </div>
+        <div class="pv-icon">
+          <img src="https://cdn.shopify.com/s/files/1/0670/7180/3574/files/flask-round.png?v=1750165147" alt="Transparent Formulas">
+          <p>Transparent Formulas</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -323,7 +341,7 @@
     </div>
   </section>
 
-  <!-- Featured Products -->
+  <!-- Featured Products (band) -->
   <section class="pv-featured">
     <div class="pv-container">
       <h2>Featured Products</h2>
@@ -357,9 +375,9 @@
   </section>
 
   <!-- Community Crest -->
-  <section class="pv-centered pv-crest">
+  <section class="pv-centered pv-crest" style="background: var(--pv-muted);">
     <div class="pv-container">
-      <img src="https://cdn.shopify.com/s/files/1/0717/5687/3919/files/EARN_3_500_SATS_VITALITY_IMMUNITY_CELL_REIGN_32.png?v=1762976901">
+      <img src="https://cdn.shopify.com/s/files/1/0717/5687/3919/files/EARN_3_500_SATS_VITALITY_IMMUNITY_CELL_REIGN_32.png?v=1762976901" alt="Peak Vitality Crest">
       <h2>Join Our Growing Community</h2>
       <p>Unlock more rewards, loyalty bonuses, and exclusive perks by becoming part of the Peak Vitality family.</p>
     </div>
@@ -374,21 +392,23 @@
   </section>
 
   <script>
-    /* --- Crest Sound Toggle --- */
+    /* Crest Sound Toggle */
     const heroVideo = document.getElementById('pv-hero-video');
     const soundToggle = document.getElementById('pv-sound-toggle');
-    soundToggle.addEventListener('click', () => {
-      heroVideo.muted = !heroVideo.muted;
-      soundToggle.classList.toggle('active', !heroVideo.muted);
-    });
+    if (heroVideo && soundToggle) {
+      soundToggle.addEventListener('click', () => {
+        heroVideo.muted = !heroVideo.muted;
+        soundToggle.classList.toggle('active', !heroVideo.muted);
+      });
+    }
 
-    /* --- Hover-to-Play Peak Difference Videos --- */
+    /* Hover-to-Play Peak Difference Videos */
     document.querySelectorAll('.pv-diff-video').forEach(video => {
       video.addEventListener('mouseenter', () => { video.play(); });
       video.addEventListener('mouseleave', () => { video.pause(); video.currentTime = 0; });
     });
 
-    /* --- Fade-in Animation --- */
+    /* Fade-in for Peak Difference columns */
     const cols = document.querySelectorAll('.pv-three__col');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -402,11 +422,11 @@
 
 {% schema %}
 {
-  "name": "PV Cinematic",
+  "name": "Homepage Cinematic",
   "settings": [],
   "blocks": [],
   "presets": [
-    { "name": "PV Cinematic" }
+    { "name": "Homepage Cinematic" }
   ]
 }
 {% endschema %}
