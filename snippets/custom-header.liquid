@@ -1,70 +1,23 @@
-<header class="pv-header">
-  <!-- BTC Ticker -->
-  <div class="pv-header__ticker" id="pv-btc-ticker">
-    Loading BTC price…
-  </div>
-  <div class="pv-header__coingecko">
-    Powered by <span style="font-weight:700;">CoinGecko</span>
+<header class="pv-header-clean">
+
+  <!-- TOP BTC TICKER BAR (DARK NAVY) -->
+  <div class="pv-header-top">
+    <span id="pv-btc-output">Live BTC price temporarily unavailable</span>
+    <small>Powered by <strong>CoinGecko</strong></small>
   </div>
 
-  <!-- Announcement bar -->
-  <div class="pv-header__announcement">
+  <!-- ANNOUNCEMENT BAR -->
+  <div class="pv-announcement-bar-global">
     Premium Supplements with Crypto Rewards!
   </div>
 
-  <!-- Logo row -->
-  <div class="pv-header__logo-row">
-    <a href="{{ routes.root_url }}" class="pv-header__logo-link site-logo">
-      <img
-        src="https://cdn.shopify.com/s/files/1/0717/5687/3919/files/Website_Logo_Header.jpg?v=1763047312"
-        alt="Peak Vitality Logo"
-        class="pv-header__logo-img">
-    </a>
+  <!-- CENTERED LOGO ONLY -->
+  <div class="pv-header-logo-wrapper">
+    <img
+      src="https://cdn.shopify.com/s/files/1/0717/5687/3919/files/Website_Logo_Header.jpg?v=1763047312"
+      alt="Peak Vitality Logo"
+      class="pv-main-logo"
+    >
   </div>
 
-  <!-- Main nav -->
-  <nav class="pv-header__nav" aria-label="Primary">
-    <a href="{{ routes.root_url }}">Home</a>
-    <a href="/collections/all">Shop</a>
-    <a href="/pages/about-us">About</a>
-    <a href="/pages/bitcoin-rewards">Rewards</a>
-    <a href="/pages/wallet-guide">Wallet Guide</a>
-    <a href="/pages/faq">FAQ</a>
-    <a href="/blogs/news">Blog</a>
-    <a href="/pages/partner-with-us">Partner With Us</a>
-    <a href="/pages/contact">Contact</a>
-  </nav>
-
-  <script>
-    (function() {
-      const tickerEl = document.getElementById('pv-btc-ticker');
-      if (!tickerEl) return;
-
-      fetch('https://peak-vitality.onrender.com/api/bitcoin-ticker')
-        .then(res => res.json())
-        .then(data => {
-          // Try a few possible shapes for safety
-          const btc = data.btc_price || data.btc || data.price_usd || data.price || 0;
-          const sat = data.sat_price || data.sat || (btc ? btc / 100000000 : 0);
-          const change = data.change_24h ?? data.change ?? data.change_pct ?? null;
-
-          const btcFormatted = btc ? Number(btc).toLocaleString(undefined, { maximumFractionDigits: 0 }) : '—';
-          const satFormatted = sat ? Number(sat).toFixed(8) : '—';
-
-          let text = `1 BTC = $${btcFormatted}`;
-          if (change !== null && change !== undefined) {
-            const chNum = Number(change);
-            const dir = chNum >= 0 ? '▲' : '▼';
-            const pct = Math.abs(chNum).toFixed(2);
-            text += `  ${dir} (${pct}% in 24h)`;
-          }
-          text += ` | 1 SAT ≈ $${satFormatted}`;
-
-          tickerEl.textContent = text;
-        })
-        .catch(() => {
-          tickerEl.textContent = 'Live BTC price temporarily unavailable';
-        });
-    })();
-  </script>
 </header>
