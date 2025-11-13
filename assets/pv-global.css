@@ -1,0 +1,441 @@
+/* ---------- Global Tokens ---------- */
+:root {
+  --pv-navy: #000080;
+  --pv-deep: #000033;
+  --pv-gold: #EFBF04;
+  --pv-white: #ffffff;
+  --pv-muted: #f7f7f7;
+  --pv-text: #000033;
+  --pv-header-height: 130px;
+  --pv-font-main: 'Montserrat', sans-serif;
+}
+
+/* Body + typography */
+body {
+  font-family: var(--pv-font-main);
+  color: var(--pv-text);
+  background-color: #fff;
+}
+
+/* Constrain main content below sticky header */
+.pv-main-wrapper {
+  margin-top: var(--pv-header-height);
+}
+
+/* Simple container utility */
+.pv-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+/* ---------- Global Header ---------- */
+
+.pv-header {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  background: var(--pv-deep);
+  color: var(--pv-white);
+  font-family: var(--pv-font-main);
+}
+
+/* Ticker strip */
+.pv-header__ticker {
+  background: var(--pv-deep);
+  color: var(--pv-gold);
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-align: center;
+  padding: 0.4rem 0.75rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pv-header__coingecko {
+  background: var(--pv-deep);
+  color: var(--pv-white);
+  font-size: 0.8rem;
+  text-align: center;
+  padding-bottom: 0.3rem;
+}
+
+/* Announcement bar (standard navy) */
+.pv-header__announcement {
+  background: var(--pv-navy);
+  color: var(--pv-white);
+  text-align: center;
+  font-weight: 600;
+  padding: 0.55rem 0.75rem;
+}
+
+/* Logo row */
+.pv-header__logo-row {
+  background: var(--pv-deep);
+  text-align: center;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+
+.pv-header__logo-link {
+  display: inline-block;
+}
+
+.pv-header__logo-img {
+  max-height: 54px;
+  width: auto;
+}
+
+/* Main nav under logo */
+.pv-header__nav {
+  background: var(--pv-deep);
+  display: flex;
+  justify-content: center;
+  gap: 2.25rem;
+  padding: 0.55rem 1rem 0.75rem;
+  flex-wrap: wrap;
+}
+
+.pv-header__nav a {
+  color: var(--pv-white);
+  text-decoration: none;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-weight: 600;
+  position: relative;
+}
+
+.pv-header__nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -0.25rem;
+  width: 0%;
+  height: 2px;
+  background: var(--pv-gold);
+  transition: width 0.2s ease-out;
+}
+
+.pv-header__nav a:hover::after {
+  width: 100%;
+}
+
+/* ---------- Global Footer ---------- */
+
+.pv-footer {
+  background: var(--pv-deep);
+  color: #f4f4f4;
+  padding: 3rem 1.5rem 1.5rem;
+  margin-top: 4rem;
+}
+
+.pv-footer__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.pv-footer__grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr;
+  gap: 2.5rem;
+}
+
+.pv-footer__brand-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.pv-footer__text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.pv-footer__heading {
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.pv-footer__links a {
+  display: block;
+  color: #f4f4f4;
+  text-decoration: none;
+  font-size: 0.9rem;
+  margin-bottom: 0.35rem;
+}
+
+.pv-footer__links a:hover {
+  color: var(--pv-gold);
+}
+
+.pv-footer__bottom {
+  border-top: 1px solid rgba(255,255,255,0.15);
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+  font-size: 0.8rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* ---------- Homepage-specific layout ---------- */
+
+.pv-home-landing {
+  font-family: var(--pv-font-main);
+  color: var(--pv-text);
+  background-color: #ffffff;
+}
+
+/* Framed hero above video */
+.pv-art-installation {
+  width: 100%;
+  overflow-x: hidden;
+  margin-bottom: -2rem;
+}
+
+.pv-art-framed-image {
+  width: 4472px;
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+  height: auto;
+}
+
+.pv-art-plaque-container {
+  display: flex;
+  justify-content: center;
+  margin-top: -3rem;
+  margin-bottom: 3rem;
+}
+
+.pv-art-plaque {
+  width: 260px;
+  max-width: 90%;
+  height: auto;
+  z-index: 3;
+}
+
+/* Cinematic hero video */
+.pv-hero {
+  position: relative;
+  max-width: 4472px;
+  margin: 2rem auto 0;
+  overflow: hidden;
+}
+
+.pv-hero video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.pv-hero__inner {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 1rem;
+  color: #ffffff;
+  text-shadow: 0 3px 8px rgba(0,0,0,0.7);
+}
+
+.pv-hero__inner h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.pv-hero__inner p {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+/* Crest sound toggle */
+#pv-sound-toggle {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 75px;
+  height: 75px;
+  cursor: pointer;
+  transition: transform .3s ease;
+}
+
+#pv-sound-toggle.active {
+  animation: pvCrestPulse 2s infinite ease-in-out;
+}
+
+@keyframes pvCrestPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+
+/* Buttons */
+a.pv-btn {
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 50px;
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+
+.pv-btn--primary {
+  background: var(--pv-gold);
+  color: #000;
+  padding: 1rem 2rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+}
+
+.pv-btn--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.35);
+  background: #ffd500;
+}
+
+.pv-btn--secondary {
+  background: var(--pv-navy);
+  color: #fff;
+  padding: .5rem 1.5rem;
+}
+
+/* Icons row */
+.pv-icons-band {
+  background: #f7f7f7;
+}
+
+.pv-icons {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.pv-icon {
+  text-align: center;
+  flex: 0 1 180px;
+}
+
+.pv-icon img {
+  width: 60px;
+  height: auto;
+  display: block;
+  margin: 0 auto 1rem auto;
+}
+
+/* Peak Difference */
+.pv-difference {
+  text-align: center;
+  padding: 4rem 1.5rem 2rem;
+}
+
+.pv-difference h2 {
+  font-size: 2.25rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.pv-three {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.pv-three__col {
+  flex: 1;
+  min-width: 260px;
+  max-width: 340px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all .8s ease;
+  text-align: center;
+}
+
+.pv-three__col.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.pv-three__col video {
+  width: 100%;
+  border-radius: 1rem;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  margin-bottom: 1rem;
+  display: block;
+}
+
+/* Featured carousel */
+.pv-featured {
+  padding: 2rem 1.5rem 0;
+}
+
+.pv-featured h2 {
+  text-align: center;
+  font-size: 2.25rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.pv-carousel {
+  display: flex;
+  overflow-x: auto;
+  gap: 2rem;
+  padding: 2rem 0;
+  scroll-behavior: smooth;
+}
+
+.pv-card {
+  flex: 0 0 250px;
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  text-align: center;
+  padding: 1rem;
+}
+
+.pv-card img {
+  width: 100%;
+  border-radius: 1rem;
+  display: block;
+}
+
+/* Shared centered sections */
+.pv-centered {
+  text-align: center;
+  padding: 4rem 1.5rem;
+}
+
+.pv-crest img {
+  width: 150px;
+  height: auto;
+  display: block;
+  margin: 0 auto 1rem auto;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .pv-hero__inner h1 {
+    font-size: 2.25rem;
+  }
+  .pv-hero__inner p {
+    font-size: 1.1rem;
+  }
+  .pv-footer__grid {
+    grid-template-columns: 1fr;
+  }
+  .pv-header__nav {
+    gap: 1.2rem;
+  }
+}
