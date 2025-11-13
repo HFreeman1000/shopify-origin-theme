@@ -1,16 +1,22 @@
 {% comment %}
-  Peak Vitality — Homepage v4 (Cinematic + Bands)
+  Peak Vitality — Homepage v5 (Cinematic + Header + Footer)
+  - Sticky BTC ticker + announcement bar + centered lion logo + nav
+  - Cinematic hero video with crest sound toggle
+  - Hover-to-play Peak Difference videos
+  - Featured products, rewards, community, CTA
+  - Homepage-only footer (deep navy)
 {% endcomment %}
 
 <section class="pv-home-landing" role="region" aria-label="Peak Vitality Homepage">
 
   <style>
+    /* ---------- Core Tokens ---------- */
     :root {
-      --pv-navy: #000080;
-      --pv-deep: #000033;
+      --pv-navy: #000080;   /* standard navy */
+      --pv-deep: #000033;   /* deep navy */
       --pv-gold: #EFBF04;
       --pv-white: #ffffff;
-      --pv-muted: #f7f7f7;
+      --pv-muted: #f5f5f7;  /* soft light grey */
       --pv-h1: 3rem;
       --pv-h2: 2.25rem;
       --pv-h3: 1.5rem;
@@ -26,7 +32,7 @@
     .pv-container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 2rem;
+      padding: 2rem 1.5rem;
     }
 
     a.pv-btn {
@@ -53,11 +59,110 @@
       padding: .5rem 1.5rem;
     }
 
-    /* Framed hero + plaque */
+    /* ---------- Sticky Header Wrapper ---------- */
+    .pv-header-shell {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    /* Top ticker bar (deep navy) */
+    .pv-header-top {
+      background: var(--pv-deep);
+      color: #ffd500;
+      font-size: 0.9rem;
+      text-align: center;
+      padding: 0.5rem 0.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .pv-header-top-main {
+      font-weight: 600;
+    }
+
+    .pv-header-top-powered {
+      color: #f4f4ff;
+      font-size: 0.8rem;
+    }
+    .pv-header-top-powered .pv-coingecko {
+      font-weight: 600;
+    }
+
+    /* Announcement bar (standard navy) */
+    .pv-announcement-bar {
+      background: var(--pv-navy);
+      color: #ffffff;
+      text-align: center;
+      padding: 0.5rem 1rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      font-size: 0.95rem;
+    }
+
+    /* Main header (deep navy) */
+    .pv-header-main {
+      background: var(--pv-deep);
+      color: #ffffff;
+      padding: 0.75rem 1.5rem 1.1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .pv-header-main-inner {
+      width: 100%;
+      max-width: 1200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .pv-header-logo {
+      display: flex;
+      justify-content: center;
+    }
+    .pv-header-logo img {
+      max-height: 64px;
+      width: auto;
+      display: block;
+    }
+
+    .pv-nav {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+    .pv-nav-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      padding: 0;
+      margin: 0;
+      justify-content: center;
+    }
+    .pv-nav-list a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+    .pv-nav-list a:hover {
+      text-decoration: underline;
+    }
+
+    /* ---------- Framed Hero + Plaque ---------- */
     .pv-art-installation {
       width: 100%;
       overflow-x: hidden;
       margin-bottom: -2rem;
+      background: #f0ebdf;
     }
     .pv-art-framed-image {
       width: 4472px;
@@ -79,7 +184,7 @@
       z-index: 3;
     }
 
-    /* Hero video */
+    /* ---------- Hero Video ---------- */
     .pv-hero {
       position: relative;
       min-height: 90vh;
@@ -90,6 +195,7 @@
       color: var(--pv-white);
       margin-top: 2rem;
       overflow: hidden;
+      background: #000;
     }
     .pv-hero video {
       position: absolute;
@@ -122,7 +228,7 @@
       margin: 0 0 1.5rem 0;
     }
 
-    /* Crest sound toggle */
+    /* ---------- Crest Sound Toggle ---------- */
     #pv-sound-toggle {
       position: absolute;
       bottom: 1.5rem;
@@ -141,20 +247,18 @@
       50% { transform: scale(1.08); }
     }
 
-    /* Credibility band */
-    .pv-credibility {
+    /* ---------- Credibility Row ---------- */
+    .pv-icons-section {
       background: var(--pv-muted);
-    }
-    .pv-credibility .pv-container {
-      padding-top: 2.5rem;
-      padding-bottom: 2.5rem;
     }
     .pv-icons {
       display: flex;
       justify-content: center;
       gap: 3rem;
-      margin-top: 0.5rem;
+      margin: 0 auto;
       flex-wrap: wrap;
+      padding: 3rem 0 2.5rem;
+      max-width: 900px;
     }
     .pv-icon {
       text-align: center;
@@ -167,14 +271,15 @@
       margin: 0 auto .5rem auto;
     }
 
-    /* Peak Difference */
+    /* ---------- Peak Difference ---------- */
     .pv-difference {
       text-align: center;
-      padding: 4rem 2rem 2rem;
+      padding: 4rem 0 3.5rem;
+      background: var(--pv-white);
     }
     .pv-difference h2 {
       font-size: var(--pv-h2);
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
       font-weight: 700;
     }
     .pv-three {
@@ -205,10 +310,14 @@
       margin-bottom: 1rem;
       display: block;
     }
+    .pv-three__col h3 {
+      font-size: var(--pv-h3);
+      margin-bottom: 0.5rem;
+    }
 
-    /* Featured band */
+    /* ---------- Featured Products ---------- */
     .pv-featured {
-      padding: 2rem 2rem 0;
+      padding: 3.5rem 0 2rem;
       background: var(--pv-muted);
     }
     .pv-featured h2 {
@@ -236,11 +345,13 @@
       width: 100%;
       border-radius: 1rem;
       display: block;
+      margin-bottom: 0.75rem;
     }
 
     .pv-centered {
       text-align: center;
-      padding: 4rem 2rem;
+      padding: 4rem 0;
+      background: var(--pv-white);
     }
 
     .pv-crest img {
@@ -250,6 +361,56 @@
       margin: 0 auto 1rem auto;
     }
 
+    /* ---------- Footer (homepage-only) ---------- */
+    .pv-footer {
+      background: var(--pv-deep);
+      color: #f5f5ff;
+      padding-top: 3rem;
+      padding-bottom: 2rem;
+      margin-top: 0;
+    }
+    .pv-footer-grid {
+      display: grid;
+      grid-template-columns: minmax(0,2fr) minmax(0,1.2fr) minmax(0,1.2fr);
+      gap: 2rem;
+      align-items: flex-start;
+    }
+    .pv-footer-logo img {
+      max-height: 52px;
+      width: auto;
+      margin-bottom: 0.75rem;
+    }
+    .pv-footer h4 {
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.75rem;
+    }
+    .pv-footer ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .pv-footer li {
+      margin-bottom: 0.4rem;
+    }
+    .pv-footer a {
+      color: #f5f5ff;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .pv-footer a:hover {
+      text-decoration: underline;
+    }
+    .pv-footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.15);
+      margin-top: 2.5rem;
+      padding-top: 1rem;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #d4d4ff;
+    }
+
     @keyframes pvFadeUp {
       from { opacity: 0; transform: translateY(30px); }
       to   { opacity: 1; transform: translateY(0); }
@@ -257,9 +418,55 @@
 
     @media (max-width: 768px) {
       :root { --pv-h1: 2.25rem; --pv-h2: 1.75rem; --pv-h3: 1.25rem; --pv-p: 1rem; }
-      .pv-container { padding: 1.25rem; }
+      .pv-container { padding: 1.5rem 1.25rem; }
+      .pv-footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .pv-header-top {
+        padding-inline: 0.75rem;
+      }
     }
   </style>
+
+  <!-- Sticky Header: BTC Ticker + Announcement + Logo + Nav -->
+  <header class="pv-header-shell">
+    <div class="pv-header-top">
+      <div id="pv-btc-ticker" class="pv-header-top-main">
+        Loading BTC price…
+      </div>
+      <div class="pv-header-top-powered">
+        Powered by <span class="pv-coingecko">CoinGecko</span>
+      </div>
+    </div>
+
+    <div class="pv-announcement-bar">
+      Premium Supplements with Crypto Rewards!
+    </div>
+
+    <div class="pv-header-main">
+      <div class="pv-header-main-inner">
+        <div class="pv-header-logo">
+          <!-- Replace LOGO_URL with your lion logo URL -->
+          <a href="/" aria-label="Peak Vitality home">
+            <img src="LOGO_URL" alt="Peak Vitality Logo">
+          </a>
+        </div>
+        <nav class="pv-nav" aria-label="Primary navigation">
+          <ul class="pv-nav-list">
+            <li><a href="/">Home</a></li>
+            <li><a href="/collections/all">Shop</a></li>
+            <li><a href="/pages/about">About</a></li>
+            <li><a href="/pages/bitcoin-rewards">Rewards</a></li>
+            <li><a href="/pages/wallet-guide">Wallet Guide</a></li>
+            <li><a href="/pages/faq">FAQ</a></li>
+            <li><a href="/blogs/news">Blog</a></li>
+            <li><a href="/pages/partner-with-us">Partner With Us</a></li>
+            <li><a href="/pages/contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
 
   <!-- Framed Hero -->
   <div class="pv-art-installation">
@@ -275,7 +482,7 @@
          alt="Homepage Plaque">
   </div>
 
-  <!-- Hero with video -->
+  <!-- Cinematic Hero -->
   <section class="pv-hero">
     <video id="pv-hero-video" autoplay loop muted playsinline preload="auto">
       <source src="https://cdn.shopify.com/videos/c/o/v/35abc5fa5fa04d4c96a3baee0b3f2786.mp4" type="video/mp4">
@@ -285,14 +492,14 @@
       <p>Discover premium health supplements that reward your journey.</p>
       <a class="pv-btn pv-btn--primary" href="/collections/all">Shop Now</a>
     </div>
-    <!-- Crest toggle (placeholder crest) -->
+    <!-- Crest sound toggle — replace with crest art if you like -->
     <img id="pv-sound-toggle"
-         src="https://cdn.shopify.com/s/files/1/0717/5687/3919/files/EARN_3_500_SATS_VITALITY_IMMUNITY_CELL_REIGN_35.png?v=1763017887"
+         src="https://cdn.shopify.com/s/files/1/0717/5687/3919/files/EARN_3_500_SATS_VITALITY_IMMUNITY_CELL_REIGN_32.png?v=1762976901"
          alt="Toggle Sound">
   </section>
 
-  <!-- Credibility (band) -->
-  <section class="pv-credibility">
+  <!-- Credibility -->
+  <section class="pv-icons-section">
     <div class="pv-container">
       <div class="pv-icons">
         <div class="pv-icon">
@@ -341,7 +548,7 @@
     </div>
   </section>
 
-  <!-- Featured Products (band) -->
+  <!-- Featured Products -->
   <section class="pv-featured">
     <div class="pv-container">
       <h2>Featured Products</h2>
@@ -375,7 +582,7 @@
   </section>
 
   <!-- Community Crest -->
-  <section class="pv-centered pv-crest" style="background: var(--pv-muted);">
+  <section class="pv-centered pv-crest">
     <div class="pv-container">
       <img src="https://cdn.shopify.com/s/files/1/0717/5687/3919/files/EARN_3_500_SATS_VITALITY_IMMUNITY_CELL_REIGN_32.png?v=1762976901" alt="Peak Vitality Crest">
       <h2>Join Our Growing Community</h2>
@@ -391,8 +598,46 @@
     </div>
   </section>
 
+  <!-- Homepage-only Footer -->
+  <footer class="pv-footer">
+    <div class="pv-container pv-footer-grid">
+      <div>
+        <div class="pv-footer-logo">
+          <!-- Replace FOOTER_LOGO_URL with lion or crest as you prefer -->
+          <img src="FOOTER_LOGO_URL" alt="Peak Vitality Logo">
+        </div>
+        <p style="max-width: 300px; font-size: 0.9rem;">
+          Premium supplements paired with Bitcoin rewards — elevating both your health and your wealth.
+        </p>
+      </div>
+      <div>
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/collections/all">Shop</a></li>
+          <li><a href="/pages/about">About</a></li>
+          <li><a href="/pages/bitcoin-rewards">Rewards</a></li>
+          <li><a href="/pages/wallet-guide">Wallet Guide</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <ul>
+          <li><a href="/pages/faq">FAQ</a></li>
+          <li><a href="/pages/partner-with-us">Partner With Us</a></li>
+          <li><a href="/pages/contact">Contact</a></li>
+          <li><a href="/policies/privacy-policy">Privacy Policy</a></li>
+          <li><a href="/policies/terms-of-service">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="pv-footer-bottom">
+      &copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.
+    </div>
+  </footer>
+
   <script>
-    /* Crest Sound Toggle */
+    /* --- Crest Sound Toggle --- */
     const heroVideo = document.getElementById('pv-hero-video');
     const soundToggle = document.getElementById('pv-sound-toggle');
     if (heroVideo && soundToggle) {
@@ -402,13 +647,13 @@
       });
     }
 
-    /* Hover-to-Play Peak Difference Videos */
+    /* --- Hover-to-Play Peak Difference Videos --- */
     document.querySelectorAll('.pv-diff-video').forEach(video => {
       video.addEventListener('mouseenter', () => { video.play(); });
       video.addEventListener('mouseleave', () => { video.pause(); video.currentTime = 0; });
     });
 
-    /* Fade-in for Peak Difference columns */
+    /* --- Fade-in Animation for Peak Difference Cards --- */
     const cols = document.querySelectorAll('.pv-three__col');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -416,6 +661,31 @@
       });
     }, { threshold: 0.2 });
     cols.forEach(c => observer.observe(c));
+
+    /* --- BTC Ticker via Render proxy (placeholder URL) --- */
+    const tickerEl = document.getElementById('pv-btc-ticker');
+    const TICKER_API_URL = 'https://peak-vitality.onrender.com/api/bitcoin-ticker'; 
+    // ^ Replace this path with your actual Render endpoint.
+    // Expected JSON shape (CoinGecko-style):
+    // { "bitcoin": { "usd": <number>, "usd_24h_change": <number> } }
+
+    if (tickerEl) {
+      fetch(TICKER_API_URL)
+        .then(resp => resp.json())
+        .then(data => {
+          const btc = data.bitcoin;
+          if (!btc || !btc.usd) throw new Error('Bad data');
+          const price = Number(btc.usd);
+          const change = Number(btc.usd_24h_change || 0);
+          const sat = price / 100_000_000;
+          const changeStr = (change >= 0 ? '+' : '') + change.toFixed(2) + '%';
+          tickerEl.textContent =
+            `1 BTC = $${price.toLocaleString()}  •  (${changeStr} in 24h)  •  1 SAT ≈ $${sat.toFixed(6)}`;
+        })
+        .catch(() => {
+          tickerEl.textContent = 'Live BTC price temporarily unavailable';
+        });
+    }
   </script>
 
 </section>
