@@ -1,132 +1,106 @@
+/* GLOBAL VARIABLES */
 :root {
-  --navy: #00063b;
-  --deep-navy: #00032a;
-  --cream: #faf8ee;
-  --white: #ffffff;
+  --pv-navy: #000033;
+  --pv-blue: #000080;
+  --pv-white: #ffffff;
+  --pv-gold: #efbf04;
+  --pv-cream: #faf7ef;
+  --pv-text: #111;
 }
 
-/***************
-  HEADER
-***************/
+/* RESET DEFAULT HEADER FROM THEME */
+header.site-header,
+nav.header__inline-menu,
+.header__icons {
+  display: none !important;
+}
+
+/* CUSTOM HEADER STRUCTURE */
 .pv-header-clean {
-  width: 100%;
-  background: var(--deep-navy);
+  background: var(--pv-navy);
+  color: var(--pv-white);
   text-align: center;
+  padding-bottom: 1rem;
 }
 
-.pv-header-top {
-  background: var(--deep-navy);
-  color: var(--white);
-  padding: 6px;
-  font-size: 14px;
+/* TOP NAV */
+.pv-top-nav {
+  background: var(--pv-navy);
+  padding: 0.75rem 0;
+}
+.pv-top-links {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+}
+.pv-top-links a {
+  color: var(--pv-white);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+.pv-top-links a:hover {
+  color: var(--pv-gold);
 }
 
+/* TICKER */
+.pv-header-ticker {
+  padding: 0.5rem 0;
+  font-size: 0.95rem;
+  background: var(--pv-blue);
+  color: var(--pv-white);
+}
+
+/* ANNOUNCEMENT BAR */
 .pv-announcement-bar-global {
-  background: #001088;
-  color: var(--white);
-  padding: 12px 0;
-  font-size: 18px;
+  background: var(--pv-blue);
+  color: var(--pv-white);
+  padding: 0.7rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
 }
 
+/* LOGO */
 .pv-header-logo-wrapper {
-  padding: 20px 0;
+  padding: 1.5rem 0 0 0;
 }
-
 .pv-main-logo {
-  width: 135px;
-  height: auto;
+  width: 260px;
+  max-width: 90%;
 }
 
-/***************
-  HERO
-***************/
-.pv-hero {
-  width: 100%;
-  overflow: hidden;
-}
-
-.pv-hero-img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-/***************
-  ICONS BAND
-***************/
-.pv-icons-band {
-  background: var(--cream);
-  padding: 50px 0;
-}
-
+/* ICON SPACING */
 .pv-icons {
   display: flex;
   justify-content: space-between;
-  max-width: 1200px;
-  margin: 0 auto;
-  gap: 6rem;
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 0 2rem;
 }
-
 .pv-icon img {
-  width: 70px;
-  margin-bottom: 12px;
+  width: 74px;
+  margin-bottom: 10px;
 }
 
-.pv-icon p {
-  text-align: center;
-  margin: 0;
-  font-size: 16px;
-}
-
-/***************
-  PEAK DIFFERENCE
-***************/
-.pv-difference {
-  text-align: center;
-  padding: 100px 0;
-}
-
-.pv-diff-grid {
+/* PEAK DIFFERENCE SPACING FIX */
+.pv-three {
   display: flex;
-  justify-content: space-between;
-  max-width: 1250px;
-  margin: 50px auto 0;
-  gap: 5rem;
+  justify-content: center;
+  gap: 3.5rem;
+  margin-top: 2rem;
 }
 
-.pv-diff-item {
-  width: 31%;
+/* MOBILE */
+@media (max-width: 768px) {
+  .pv-icons {
+    gap: 2rem;
+  }
+  .pv-top-links {
+    gap: 1.5rem;
+  }
 }
 
-.pv-diff-img-wrapper img {
-  width: 100%;
-  border-radius: 16px;
-}
-
-/***************
-  FOOTER
-***************/
-.pv-footer {
-  background: var(--deep-navy);
-  color: var(--white);
-  padding: 50px 0;
-  text-align: center;
-}
-
-.pv-footer-logo {
-  width: 130px;
-  margin-bottom: 20px;
-}
-
-.pv-footer-links a {
-  color: var(--white);
-  text-decoration: none;
-  margin: 0 14px;
-  font-size: 15px;
-}
-
-.pv-footer-copy {
-  margin-top: 20px;
-  font-size: 14px;
-  opacity: 0.75;
+/* SPECIAL — LUNAR DRIFT USES BLUE LOGO */
+.template-product--lunar-drift .pv-main-logo {
+  content: url("https://cdn.shopify.com/s/files/1/0717/5687/3919/files/Website_Logo_Blue_Lion.png?v=1763049999");
 }
