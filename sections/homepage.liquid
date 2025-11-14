@@ -1,74 +1,296 @@
-<section id="pv-homepage">
+{% comment %}
+  Fully rebuilt Peak Vitality Homepage (Final Version)
+  - Correct header spacing
+  - Correct icon spacing
+  - Correct hero height
+  - Zero duplicates
+  - Full unified file
+{% endcomment %}
 
-  <!-- HERO CINEMATIC -->
-  <div class="pv-hero">
-    <img
-      src="https://cdn.shopify.com/s/files/1/0717/5687/3919/files/lion_staircase_loop.jpg?v=1763000000"
-      class="pv-hero-img"
-      alt="Peak Vitality Cinematic"
-    >
+<section class="pv-home-landing" role="region" aria-label="Peak Vitality Homepage">
+
+  <style>
+    :root {
+      --pv-navy: #000080;
+      --pv-deep: #000033;
+      --pv-gold: #EFBF04;
+      --pv-white: #ffffff;
+      --pv-muted: #f7f7f7;
+      --pv-h1: 3rem;
+      --pv-h2: 2.25rem;
+      --pv-h3: 1.5rem;
+      --pv-p: 1.1rem;
+    }
+
+    .pv-home-landing {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--pv-deep);
+    }
+
+    .pv-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    /* BUTTONS */
+    a.pv-btn {
+      display: inline-block;
+      text-decoration: none;
+      font-weight: 700;
+      border-radius: 50px;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .pv-btn--primary {
+      background: var(--pv-gold);
+      color: #000;
+      padding: 1rem 2rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    }
+    .pv-btn--primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.35);
+      background: #ffd500;
+    }
+    .pv-btn--secondary {
+      background: var(--pv-navy);
+      color: #fff;
+      padding: .5rem 1.5rem;
+    }
+
+    /* FRAMED HERO IMAGE */
+    .pv-art-installation img {
+      width: 4472px;
+      max-width: 100%;
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* PLAQUE */
+    .pv-art-plaque-container {
+      display: flex;
+      justify-content: center;
+      margin-top: -3rem;
+      margin-bottom: 3rem;
+    }
+    .pv-art-plaque {
+      width: 260px;
+    }
+
+    /* HERO */
+    .pv-hero {
+      position: relative;
+      height: 85vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--pv-white);
+      background: url('https://cdn.shopify.com/s/files/1/0670/7180/3574/files/final_spiral_staircase_hero_reupload.png?v=1745757805')
+        center/cover no-repeat;
+    }
+    .pv-hero__inner {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: pvFadeUp 1.2s ease forwards .3s;
+    }
+    .pv-hero h1 {
+      font-size: var(--pv-h1);
+      font-weight: 700;
+      text-shadow: 0 3px 8px rgba(0,0,0,0.7);
+    }
+
+    /* ICONS */
+    .pv-icons {
+      display: flex;
+      justify-content: space-between;
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 0 2rem;
+    }
+
+    .pv-icon {
+      text-align: center;
+      min-width: 140px;
+    }
+    .pv-icon img {
+      width: 60px;
+      margin-bottom: .5rem;
+    }
+
+    /* PEAK DIFFERENCE */
+    .pv-three {
+      display: flex;
+      justify-content: center;
+      gap: 3.5rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+    .pv-three__col {
+      flex: 1;
+      min-width: 250px;
+      max-width: 320px;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all .8s ease;
+      text-align: center;
+    }
+    .pv-three__col.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .pv-three__col img {
+      width: 240px;
+      border-radius: 1rem;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+      margin-bottom: 1rem;
+    }
+
+    /* CAROUSEL */
+    .pv-carousel {
+      display: flex;
+      overflow-x: auto;
+      gap: 2rem;
+      padding: 2rem 0;
+      scroll-behavior: smooth;
+    }
+
+    /* ANIMATION */
+    @keyframes pvFadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+
+  <!-- HERO FRAME -->
+  <div class="pv-art-installation">
+    <img src="https://cdn.shopify.com/s/files/1/0670/7180/3574/files/Path_Of_The_Sovereign_5.png?v=1750165003">
   </div>
 
-  <!-- ICON BAND -->
-  <div class="pv-icons-band">
-    <div class="pv-icons">
+  <!-- PLAQUE -->
+  <div class="pv-art-plaque-container">
+    <img
+      class="pv-art-plaque"
+      src="https://cdn.shopify.com/s/files/1/0670/7180/3574/files/Path_of_the_Sovereign_Plaque_1.png?v=1748915453">
+  </div>
 
+  <!-- HERO -->
+  <section class="pv-hero">
+    <div class="pv-hero__inner">
+      <h1>Fuel Your Vitality. Earn Bitcoin.</h1>
+      <p>Discover premium health supplements that reward your journey.</p>
+      <a class="pv-btn pv-btn--primary" href="/collections/all">Shop Now</a>
+    </div>
+  </section>
+
+  <!-- ICONS -->
+  <section>
+    <div class="pv-icons">
       <div class="pv-icon">
-        <img src="https://cdn.shopify.com/s/files/1/0717/5687/3919/files/icon_flag.png?v=1">
+        <img src="https://cdn.shopify.com/s/files/1/0670/7180/3574/files/flag.png?v=1750165146">
         <p>Made in USA</p>
       </div>
 
       <div class="pv-icon">
-        <img src="https://cdn.shopify.com/s/files/1/0717/5687/3919/files/icon_btc.png?v=1">
+        <img src="https://cdn.shopify.com/s/files/1/0670/7180/3574/files/bitcoin_2.png?v=1750335468">
         <p>Bitcoin Rewards</p>
       </div>
 
       <div class="pv-icon">
-        <img src="https://cdn.shopify.com/s/files/1/0717/5687/3919/files/icon_lab.png?v=1">
+        <img src="https://cdn.shopify.com/s/files/1/0670/7180/3574/files/flask-round.png?v=1750165147">
         <p>Transparent Formulas</p>
       </div>
-
     </div>
-  </div>
+  </section>
 
   <!-- PEAK DIFFERENCE -->
-  <div class="pv-difference">
-    <h2>The Peak Difference</h2>
+  <section class="pv-difference">
+    <div class="pv-container">
+      <h2>The Peak Difference</h2>
 
-    <div class="pv-diff-grid">
+      <div class="pv-three">
 
-      <div class="pv-diff-item">
-        <div class="pv-diff-img-wrapper">
-          <img src="https://cdn.shopify.com/s/files/1/0717/5687/3919/files/peak1.jpg?v=1" class="static">
+        <div class="pv-three__col">
+          <img src="https://cdn.shopify.com/s/files/1/0670/7180/3574/files/Mountain_flowing_with_energy_at_dawn.png?v=1750556494">
+          <h3>Health Optimization</h3>
         </div>
-        <h3>Health Optimization</h3>
-        <p>Scientifically crafted supplements that fuel vitality from within.</p>
-      </div>
 
-      <div class="pv-diff-item">
-        <div class="pv-diff-img-wrapper">
-          <img src="https://cdn.shopify.com/s/files/1/0717/5687/3919/files/peak2.jpg?v=1" class="static">
+        <div class="pv-three__col">
+          <img src="https://cdn.shopify.com/s/files/1/0670/7180/3574/files/Bitcoin_flows.png?v=1750556494">
+          <h3>Wealth Empowerment</h3>
         </div>
-        <h3>Wealth Empowerment</h3>
-        <p>Earn Bitcoin rewards with every purchase — real value, real growth.</p>
-      </div>
 
-      <div class="pv-diff-item">
-        <div class="pv-diff-img-wrapper">
-          <img src="https://cdn.shopify.com/s/files/1/0717/5687/3919/files/peak3.jpg?v=1" class="static">
+        <div class="pv-three__col">
+          <img src="https://cdn.shopify.com/s/files/1/0670/7180/3574/files/citadel_at_dusk.png?v=1750556494">
+          <h3>Innovative Wellness</h3>
         </div>
-        <h3>Innovative Wellness</h3>
-        <p>Next-gen formulas inspired by nature, backed by cutting-edge science.</p>
-      </div>
 
+      </div>
     </div>
-  </div>
+  </section>
+
+  <!-- FEATURED PRODUCTS -->
+  <section class="pv-featured">
+    <div class="pv-container">
+      <h2>Featured Products</h2>
+
+      <div class="pv-carousel">
+        <div class="pv-card">
+          <img src="https://cdn.shopify.com/s/files/1/0670/7180/3574/files/ChatGPT_Image_Apr_20_2025_10_12_36_AM.png?v=1745165592">
+          <h4>Lunar Drift</h4>
+          <a class="pv-btn pv-btn--secondary" href="/products/lunar-drift">Shop Now</a>
+        </div>
+
+        <div class="pv-card">
+          <img src="https://cdn.shopify.com/s/files/1/0670/7180/3574/files/ChatGPT_Image_Apr_25_2025_12_23_29_PM.png?v=1745605890">
+          <h4>Cell Reign</h4>
+          <a class="pv-btn pv-btn--secondary" href="/products/cell-reign">Shop Now</a>
+        </div>
+
+        <div class="pv-card">
+          <img src="https://cdn.shopify.com/s/files/1/0670/7180/3574/files/rhip2.png?v=1745713332">
+          <h4>Complete Wellness Bundle</h4>
+          <a class="pv-btn pv-btn--secondary" href="/products/complete-wellness-bundle">Shop Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BITCOIN CTA -->
+  <section class="pv-centered">
+    <div class="pv-container">
+      <h2>Earn Bitcoin with Every Order</h2>
+      <p>Every Peak Vitality order includes free Bitcoin rewards.</p>
+      <a class="pv-btn pv-btn--primary" href="/pages/bitcoin-rewards">Learn How</a>
+    </div>
+  </section>
+
+  <!-- CREST -->
+  <section class="pv-centered pv-crest">
+    <div class="pv-container">
+      <img src="https://cdn.shopify.com/s/files/1/0670/7180/3574/files/final_crest.png?v=1761197755">
+      <h2>Join Our Growing Community</h2>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const cols = document.querySelectorAll('.pv-three__col');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add('visible'); });
+      }, { threshold: 0.2 });
+      cols.forEach(c => observer.observe(c));
+    });
+  </script>
 
 </section>
 
 {% schema %}
 {
-  "name": "Homepage Cinematic",
-  "settings": []
+  "name": "PV Homepage",
+  "settings": [],
+  "blocks": [],
+  "presets": [{"name": "PV Homepage"}]
 }
 {% endschema %}
